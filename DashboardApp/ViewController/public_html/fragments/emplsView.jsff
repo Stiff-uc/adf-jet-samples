@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="auto" id="gr1">
+      <af:gridCell marginStart="5px" rowSpan="2" width="50%" id="gc1">
+        <af:image source="resources/images/people/#{bindings.EmployeeId.inputValue}.png" id="ot1"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+        <af:panelFormLayout id="pfl1" labelWidth="75px">
+          <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                        required="#{bindings.FirstName.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.FirstName.hints.displayWidth}"
+                        maximumLength="#{bindings.FirstName.hints.precision}"
+                        shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.FirstName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                        required="#{bindings.LastName.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.LastName.hints.displayWidth}"
+                        maximumLength="#{bindings.LastName.hints.precision}"
+                        shortDesc="#{bindings.LastName.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.LastName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                        required="#{bindings.Email.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.Email.hints.displayWidth}" maximumLength="#{bindings.Email.hints.precision}"
+                        shortDesc="#{bindings.Email.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.Email.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.JobTitle.inputValue}" label="#{bindings.JobTitle.hints.label}"
+                        required="#{bindings.JobTitle.hints.mandatory}"
+                        columns="#{bindings.JobTitle.hints.displayWidth}"
+                        maximumLength="#{bindings.JobTitle.hints.precision}"
+                        shortDesc="#{bindings.JobTitle.hints.tooltip}" id="it4" readOnly="true">
+            <f:validator binding="#{bindings.JobTitle.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+      <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc3"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+</ui:composition>

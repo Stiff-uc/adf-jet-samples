@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="mainPageDef"
+                Package="com.redsamurai.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="emplsflow1" taskFlowId="/WEB-INF/flows/empls-flow.xml#empls-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="EmployeesView1" RangeSize="-1" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"/>
+    <taskFlow id="jobsflow1" taskFlowId="/WEB-INF/flows/jobs-flow.xml#jobs-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.redsamurai.model.views.EmployeesView" Name="EmployeesView1">
+        <AttrNames>
+          <Item Value="Salary"/>
+          <Item Value="Email"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="MinSalary">
+      <AttrNames>
+        <Item Value="MinSalary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="MaxSalary">
+      <AttrNames>
+        <Item Value="MaxSalary"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces" xmlns:ui="http://java.sun.com/jsf/facelets">
+  <af:document title="main.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:resource type="css" source="css/libs/oj/v1.1.2/alta/oj-alta-min.css"/>
+    <af:resource type="javascript" source="js/libs/require/require.js"/>
+    <af:form id="f1">
+      <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+        <f:facet name="header">
+          <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:outputText value="Red Samurai Application" id="ot1"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="status"/>
+        <f:facet name="appNav">
+        
+        </f:facet>
+        <f:facet name="globalLinks"/>
+        <f:facet name="footer"/>
+        <f:facet name="center">
+          <af:masonryLayout id="ml1">
+            <af:dropTarget dropListener="#{MainBean.handleDrop}" actions="MOVE">
+              <af:dataFlavor flavorClass="javax.faces.component.UIComponent" discriminant="masonryTile"/>
+            </af:dropTarget>
+            <af:panelGroupLayout id="pgl3" layout="vertical" styleClass="AFMasonryTileSize2x1 tileStyle">
+              <af:region value="#{bindings.emplsflow1.regionModel}" id="r1"/>
+              <af:componentDragSource discriminant="masonryTile"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl4" layout="vertical" styleClass="AFMasonryTileSize3x2 tileStyle">
+              <af:outputLabel value="Employees" id="ol2"/>
+              <af:spacer width="10" height="10" id="s3"/>
+              <dvt:lineChart id="lineChart1" var="row" value="#{bindings.EmployeesView1.collectionModel}" inlineStyle="width:500px; height:280px;">
+                <dvt:chartLegend rendered="false" id="cl1"/>
+                <f:facet name="dataStamp">
+                  <dvt:chartDataItem id="di1" series="#{bindings.EmployeesView1.hints.Salary.label}"
+                                     value="#{row.Salary}" group="#{row.Email}"/>
+                </f:facet>
+              </dvt:lineChart>
+              <af:componentDragSource discriminant="masonryTile"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl5" layout="vertical" styleClass="AFMasonryTileSize2x2 tileStyle">
+              <!-- here's jet include -->
+              <ui:include src="/fragments/jetView.jsff"/>             
+              <af:componentDragSource discriminant="masonryTile"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl7" layout="vertical" styleClass="AFMasonryTileSize2x2 tileStyle">
+              <af:region value="#{bindings.jobsflow1.regionModel}" id="r2"/>
+              <af:componentDragSource discriminant="masonryTile"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl6" layout="vertical" styleClass="AFMasonryTileSize2x1 tileStyle">
+              <af:outputLabel value="Minimum vs. Maximum" id="ol1"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <dvt:statusMeterGauge plotArea="on" id="statusMeterGauge1" maximum="20000"
+                                    value="#{bindings.MinSalary.inputValue}" minimum="0">
+                <dvt:gaugeMetricLabel rendered="true" id="gml1"/>
+                <dvt:gaugeThreshold color="#00b500" maximum="11500" id="thr1"/>
+                <dvt:gaugeThreshold color="#d62800" id="thr2"/>
+              </dvt:statusMeterGauge>
+              <dvt:statusMeterGauge plotArea="on" id="statusMeterGauge2" maximum="20000"
+                                    value="#{bindings.MaxSalary.inputValue}" minimum="0">
+                <dvt:gaugeMetricLabel rendered="true" id="gml2"/>
+                <dvt:gaugeThreshold color="#00b500" maximum="11500" id="thr3"/>
+                <dvt:gaugeThreshold color="#d62800" id="thr4"/>
+              </dvt:statusMeterGauge>
+              <af:componentDragSource discriminant="masonryTile"/>
+            </af:panelGroupLayout>
+          </af:masonryLayout>
+        </f:facet>
+        <f:facet name="start">
+          <af:listView value="#{bindings.EmployeesView1.collectionModel}" var="item"
+                       emptyText="#{bindings.EmployeesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                       fetchSize="#{bindings.EmployeesView1.rangeSize}" id="lv1" selection="single"
+                       selectionListener="#{bindings.EmployeesView1.treeModel.makeCurrent}">
+            <af:listItem id="li1">
+              <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                  <af:gridCell marginStart="5px" width="50%" id="gc1">
+                    <af:outputFormatted value="#{item.bindings.FirstName.inputValue}" id="of1"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                    <af:outputFormatted value="#{item.bindings.LastName.inputValue}" id="of2"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </af:listItem>
+          </af:listView>
+        </f:facet>
+        <f:facet name="end"/>
+        <f:attribute name="endWidth" value="0"/>
+        <f:attribute name="brandingMaxWidth" value="1124px"/>
+      </af:pageTemplate>
+    </af:form>
+  </af:document>
+</f:view>

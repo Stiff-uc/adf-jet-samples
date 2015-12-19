@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple JET Page</title>
+        <meta charset="UTF-8"/>
+        <!-- This is the main css file for the default Alta theme -->
+        <link id="jetCss" rel="stylesheet" href="css/libs/oj/v1.1.2/alta/oj-alta-min.css" type="text/css"/>
+        <!-- RequireJS configuration file -->
+        <script data-main="js/main" src="js/libs/require/require.js"></script>
+    </head>
+    <body>
+        <div id="container" style="padding: 10px;">
+            <!-- The welcome text will display when this ojInputText is updated. -->
+            <input id="text-input" type="text" 
+                        data-bind="ojComponent: {component: 'ojInputText', 
+                                value: name, placeholder: 'User Name',
+                                pattern: '[a-zA-Z]{4,}',
+                                title: '<html>Enter <b>at least</b> 4 characters</html>'}"/>
+            <div data-bind="text: welcomeText"></div>
+        </div>
+    </body>
+</html> 

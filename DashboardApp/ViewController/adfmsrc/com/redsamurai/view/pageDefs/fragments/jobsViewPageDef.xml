@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="jobsViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JobsView1" RangeSize="-1" DataControl="HrModuleDataControl" id="JobsView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="JobsView1Iterator" id="JobsView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.redsamurai.model.views.JobsView" Name="JobsView1">
+        <AttrNames>
+          <Item Value="MinSalary"/>
+          <Item Value="MaxSalary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
