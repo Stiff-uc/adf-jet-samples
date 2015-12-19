@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <dvt:areaChart coordinateSystem="polar" polarGridShape="polygon" id="areaChart1" var="row"
+                   value="#{bindings.JobsView1.collectionModel}" inlineStyle="width:330px; height:330px;">
+        <f:facet name="dataStamp">
+            <dvt:chartDataItem id="di1" series="#{bindings.JobsView1.hints.MinSalary.label}" value="#{row.MinSalary}"
+                               group="#{row.MaxSalary}"/>
+        </f:facet>
+    </dvt:areaChart>
+</ui:composition>

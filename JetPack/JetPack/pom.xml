@@ -28,6 +28,20 @@
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Page-Flow-Runtime</artifactId>
+      <version>12.2.1-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Faces-Runtime-11</artifactId>
+      <version>12.2.1-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <sourceDirectory>src/</sourceDirectory>

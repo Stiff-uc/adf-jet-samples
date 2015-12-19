@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:trh="http://myfaces.apache.org/trinidad/html">
+    <af:group id="g1">
+        <trh:script id="s1" text='
+        require.config({
+            baseUrl: "js"
+        });
+        require( ["main"]);'><?audit suppress oracle.adf.faces.verbatimScript?>
+        </trh:script>
+        <h4>Oracle JET</h4>
+        <div id="barChart" data-bind="ojComponent: {
+                    component: 'ojChart', 
+                    type: 'bar', 
+                    orientation: orientationValue,
+                    stack: stackValue,
+                    series: barSeriesValue, 
+                    groups: barGroupsValue, 
+                    animationOnDisplay: 'auto',
+                    animationOnDataChange: 'auto',
+                    hoverBehavior: 'dim'
+                }" style="max-width:400px;width:100%;height:280px;" xmlns="http://www.w3.org/1999/xhtml">  
+        </div>
+    </af:group>
+</ui:composition>

@@ -1,0 +1,15 @@
+  @charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+.chartStyle {
+    width: 300px;
+    height: 300px;
+}
+
+.tileStyle {
+  padding: 14px 14px;
+  border: 1px solid #E7E7E9;
+  background-color: white;
+}
