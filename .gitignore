@@ -18,4 +18,5 @@ tmp/**/*
 *.bak
 *.swp
 .data/
+!lib/*.jar
 
