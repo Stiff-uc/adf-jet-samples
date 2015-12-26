@@ -18,5 +18,6 @@ tmp/**/*
 *.bak
 *.swp
 .data/
+.gradle/
 !lib/*.jar
 
